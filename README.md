@@ -1,2 +1,2 @@
 # atm_machine
-Simple ATM machine written in c
+Simple ATM machine written in C
