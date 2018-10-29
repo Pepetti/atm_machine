@@ -14,7 +14,7 @@ void main(){
 		printf("PLEASE ENTER VALID PASSWORD\n");
 	}do{
 
-		printf("********Welcome to ATM Service**************\n");
+		printf("********Welcome to ATM Service********\n");
 
 		printf("1. Check Balance\n");
 
