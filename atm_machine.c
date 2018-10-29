@@ -1,12 +1,30 @@
 #include <stdio.h>
-unsigned long amount=1000, deposit, withdraw;
+#include <stdlib.h>
 
-int choice, pin, k;
+int choice, k;
 
 char transaction ='y';
 
+void cashLogic(unsigned long amount, unsigned long withdraw){
+	int cash20 = 0, cash50 = 0;
+	int withdrawAmount = withdraw;
+	
+	if (withdrawAmount >= 50){
+		cash50 = withdrawAmount / 50;
+		withdrawAmount -= (50 * cash50);
 
+	}
+	if (withdrawAmount >= 20){
+		cash20 = withdrawAmount / 20;
+		withdrawAmount -= (20 * cash20);	
+	}
+	int tempWithdrawAmount = 20 * cash20 + 50 * cash50;
+
+	printf("You'll get %d 50 bills and %d 20 bills", cash50, cash20);
+}
+		
 void printMenu() {
+	printf("\n");
 	printf("********Welcome to ATM Service**************\n");
 	printf("1. Check Balance\n");
 	printf("2. Withdraw Cash\n");
@@ -17,17 +35,25 @@ void printMenu() {
 }
 
 int pinCheck(){
+	char var[10];
 	int pin;
-	while (pin != 1520){
+
+	FILE *fp = fopen("pin.txt", "r");
+	fgets(var, sizeof(var), fp);
+	int pinVar = atoi(var);
+
+	while (pin != pinVar ){
 		printf("ENTER YOUR SECRET PIN NUMBER:");
 		scanf("%d", &pin);
-		if (pin != 1520)
+		if (pin != pinVar)
 		printf("PLEASE ENTER VALID PASSWORD\n");
 	}
 	return pin;
 }
 
 void main(){
+	unsigned long amount=1000, deposit, withdraw;
+
 	pinCheck();
 	do{
 		printMenu();
@@ -56,6 +82,7 @@ void main(){
             }
             else{
 				amount = amount - withdraw;
+				cashLogic(amount, withdraw);
 				printf("\n\n PLEASE COLLECT CASH");
 				printf("\n YOUR CURRENT BALANCE IS%lu", amount);
 			}			
@@ -64,7 +91,7 @@ void main(){
 		case 3:
 			printf("\n ENTER THE AMOUNT TO DEPOSIT");
 			scanf("%lu", &deposit);
-                        amount = amount + deposit;
+			amount = amount + deposit;
 			printf("YOUR BALANCE IS %lu", amount);
 			break;
 
