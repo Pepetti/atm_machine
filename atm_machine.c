@@ -25,7 +25,7 @@ void cashLogic(unsigned long amount, unsigned long withdraw){
 		
 void printMenu() {
 	printf("\n");
-	printf("********Welcome to ATM Service**************\n");
+	printf("*************Welcome to ATM Service************\n");
 	printf("1. Check Balance\n");
 	printf("2. Withdraw Cash\n");
 	printf("3. Deposit Cash\n");
