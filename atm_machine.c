@@ -29,7 +29,8 @@ void printMenu() {
 	printf("1. Check Balance\n");
 	printf("2. Withdraw Cash\n");
 	printf("3. Deposit Cash\n");
-	printf("4. Quit\n");
+	printf("4. Contact us\n");
+	printf("5. Quit\n");
 	printf("***********************************************\n\n");
 	printf("Enter your choice: ");
 }
@@ -94,8 +95,9 @@ void main(){
 			amount = amount + deposit;
 			printf("YOUR BALANCE IS %lu", amount);
 			break;
-
 		case 4:
+				printf("Branch Manager=6207348482,Email : sbi.service@gmail.com");break;
+		case 5:
 			printf("\n THANK U USING ATM");
 			break;
 		
