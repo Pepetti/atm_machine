@@ -84,7 +84,7 @@ void main(){
 				amount = amount - withdraw;
 				cashLogic(amount, withdraw);
 				printf("\n\n PLEASE COLLECT CASH");
-				printf("\n YOUR CURRENT BALANCE IS%lu", amount);
+				printf("\n YOUR CURRENT BALANCE IS %lu", amount);
 			}			
             break;
 
